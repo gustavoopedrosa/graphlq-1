@@ -1,0 +1,19 @@
+const { gql } = require("apollo-server");
+
+
+# Os campos definidos como obrigatórios não podem retornar null, os campos não obrigatórios
+# podem retornar null e deixam a criação de novos campos mais flexivel.
+const userSchema = gql`
+  type User {
+    nome: String!
+    ativo: Boolean!
+    email: String
+  }
+
+  type Query {
+    users: [User]
+    primeiroUser: User
+  }
+`
+
+module.exports = userSchema
